@@ -1,0 +1,80 @@
+
+@model ProductModel
+
+
+<h1 class="h3">Create Product</h1>
+<hr>
+
+
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="Admin" asp-action="ProductCreate" method="POST" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group row">
+            <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Url" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input class="form-control" asp-for="Url">
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label  asp-for="Description" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <textarea id="editor" class="form-control" asp-for="Description"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label  asp-for="Price" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input class="form-control" asp-for="Price">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="ImageUrl" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input class="form-control" asp-for="ImageUrl">
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+        
+            <div class="form-group row">
+                <label asp-for="IsApproved" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="IsApproved">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="IsHome" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="IsHome">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                </div>
+            </div>
+    </form>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    
+   
+}
