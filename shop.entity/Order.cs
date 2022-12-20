@@ -14,9 +14,10 @@ namespace shop.entity
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Note { get; set; }
-
+        public string PaymentId { get; set; }
+        public string ConversationId { get; set; }
         public EnumOrderState OrderState { get; set; }
-
+        public EnumPaymentType PaymentType { get; set; }
         public List<OrderItem>? OrderItems { get; set; }
 
     }
@@ -25,5 +26,10 @@ namespace shop.entity
         waiting = 0,
         unpaid = 1,
         completed = 2
+    }
+    public enum EnumPaymentType
+    {
+        CreditCard = 0,
+        Eft = 1
     }
 }
