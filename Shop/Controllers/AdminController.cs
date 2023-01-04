@@ -299,7 +299,7 @@ namespace Shop.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProductEdit(ProductModel model,int[] categoryIds,IFormFile file)
+        public async Task<IActionResult> ProductEdit(ProductModel model,int[] categoryIds,IFormFile? file)
         {
             if (ModelState.IsValid)
             {
@@ -315,7 +315,7 @@ namespace Shop.Controllers
                 entity.Description = model.Description;
                 entity.IsApproved = model.IsApproved;
                 entity.IsHome = model.IsHome;
-                if (file != null) 
+                if (file != null)
                 {
                     var extention=Path.GetExtension(file.FileName);
                     var randomName = string.Format($"{Guid.NewGuid()}{extention}");
@@ -326,9 +326,9 @@ namespace Shop.Controllers
                     {
                         await file.CopyToAsync(stream);
                     }
-                }
+            }
 
-                _productService.Update(entity, categoryIds);
+            _productService.Update(entity, categoryIds);
 
                 var msg = new AlertMessage()
                 {

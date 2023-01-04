@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using shop.entity;
 
 namespace Shop.Models
@@ -24,7 +25,8 @@ namespace Shop.Models
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Description 5-100 karakter aralýðýnda olmalýdýr.")]
         public string? Description { get; set; }
 
-        [Required(ErrorMessage = "ImageUrl zorunlu bir alan.")]
+        //[Required(ErrorMessage = "ImageUrl zorunlu bir alan.")]
+        
         public string? ImageUrl { get; set; }
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
